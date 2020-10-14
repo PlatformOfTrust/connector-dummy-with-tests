@@ -1,0 +1,57 @@
+'No id was provided in the "ids" parameter': |
+  {
+    "error": {
+      "status": 422,
+      "message": "No id was provided in the 'ids' parameter"
+    }
+  }
+'Signature validation failed': |
+  {
+    "error": {
+      "status": 422,
+      "message": "Signature validation failed."
+    }
+  }
+'Missing required header': |
+  {
+    "error": {
+      "status": 422,
+      "message": "Missing required header \"x-pot-signature\""
+    }
+  }
+'Missing required field': |
+  {
+    "error": {
+      "status": 422,
+      "message": {
+        "timestamp": [
+          "Missing data for required field."
+        ]
+      }
+    }
+  }
+'Date validation failed': |
+  {
+    "error": {
+      "status": 422,
+      "message": {
+        "timestamp": [
+          "Date validation failed"
+        ]
+      }
+    }
+  }
+'Context validation failed': |
+    "error": {
+        "message": {
+            "@context": [
+                "Must start with https://standards.oftrust.net/v2/Schema/DataProductParameters/Sensor/."
+            ]
+        },
+        "status": 422,
+    }
+'Data type validation failed': |
+    "error": {
+        "message": {"parameters": {"dataTypes": {"0": ['Invalid data type "foo"']}}},
+        "status": 422,
+    }

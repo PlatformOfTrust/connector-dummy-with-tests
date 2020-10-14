@@ -1,0 +1,125 @@
+type: object
+properties:
+  '@context':
+    description: JSON-LD context url with terms required to understand sensor data product content. Equal to https://standards.oftrust.net/v2/Context/DataProductOutput/Sensor/.
+    type: string
+    example: "https://standards.oftrust.net/v2/Context/DataProductOutput/Sensor/"
+  data:
+    description: Output of sensor data product returned from the source.
+    type: object
+    properties:
+      sensors:
+        type: array
+        description: "Sensor output values."
+        items:
+          type: object
+          properties:
+              id:
+                  description: The ID of the requested data.
+                  type: object
+              measurements:
+                  description: "Measurements output data."
+                  type: array
+                  items:
+                    description: An object containing the data value, the moment in time when it was recorded and the data type.
+                    type: object
+                    properties:
+                        '@type':
+                            description: Type of measurement.
+                            type: string
+                            enum: [
+                                "MeasureAirCO2LevelPPM",
+                                "MeasureAirTemperatureCelsiusDegree",
+                                "MeasurePresence"
+                            ]
+                        value:
+                            description: The data value recorded at a specific moment in time.
+                            type: object
+                        timestamp:
+                            description: The moment in time when the data value was recorded. RFC3339 format.
+                            type: datetime
+                            example: "2018-11-22T10:00:00Z"
+                    example: |
+                        {
+                            "@type": "MeasureAirTemperatureCelsiusDegree",
+                            "value": 21,
+                            "timestamp": "2018-11-13T20:20:39+00:00"
+                        }
+          example: |
+              {
+                  "id": "<JSON Object specified in AtDataProduct link>",
+                  "measurements":  [
+                    {
+                      "@type": "MeasureAirTemperatureCelsiusDegree",
+                      "value": 21,
+                      "timestamp": "2018-11-13T20:20:39+00:00"
+                    },
+                    {
+                      "@type": "MeasureAirCO2LevelPPM",
+                      "value": 420,
+                      "timestamp": "2018-11-13T20:20:39+00:00"
+                    },
+                    {
+                      "@type": "MeasurePresence",
+                      "value": true,
+                      "timestamp": "2018-11-13T20:20:39+00:00"
+                    }
+                  ]
+              }
+    example: |
+        {
+            "sensors": [
+                {
+                    "id": "<JSON Object specified in AtDataProduct link>",
+                    "measurements": [
+                        {
+                            "@type": "MeasureAirTemperatureCelsiusDegree",
+                            "value": 21,
+                            "timestamp": "2018-11-13T20:20:39+00:00"
+                        },
+                        {
+                            "@type": "MeasureAirCO2LevelPPM",
+                            "value": 420,
+                            "timestamp": "2018-11-13T20:20:39+00:00"
+                        }
+                    ]
+                },
+                {
+                    "id": "<JSON Object specified in AtDataProduct link>",
+                    "measurements": [
+                      {
+                        "@type": "MeasureAirTemperatureCelsiusDegree",
+                        "value": 21,
+                        "timestamp": "2018-11-13T20:20:39+00:00"
+                      },
+                      {
+                        "@type": "MeasureAirCO2LevelPPM",
+                        "value": 420,
+                        "timestamp": "2018-11-13T20:20:39+00:00"
+                      },
+                      {
+                        "@type": "MeasurePresence",
+                        "value": true,
+                        "timestamp": "2018-11-13T20:20:39+00:00"
+                      }
+                    ]
+                }
+            ]
+        }
+  signature:
+    description: |
+      Signature information. The signature is generated based on the
+      `data` object with the `created` value added to the key
+      `__signed__`. The `__signed__` is NOT returned in the data, but
+      MUST be added when validating the signature.
+      The `type` MUST match the data product `organizationPublicKeys.type`
+      value and the `creator` MUST match the data product `organizationPublicKeys.url`
+      value.
+    type: object
+    example: |
+      {
+          "type": "<MUST match organizationPublicKeys.type in data product>",
+          "created": "<RFC3339 timestamp>",
+          "creator": "<MUST match organizationPublicKeys.url in data product>",
+          "signatureValue": "<the value of the signature>"
+      }

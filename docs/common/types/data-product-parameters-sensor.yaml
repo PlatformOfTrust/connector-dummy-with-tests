@@ -1,0 +1,66 @@
+type: object
+properties:
+  '@context':
+    type: string
+    description: JSON-LD context url with terms required to understand data product content. Must be equal to https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/.
+    example: "https://standards.oftrust.net/v2/Context/DataProductParameters/Sensor/"
+  productCode:
+    description: The product code of the data product.
+    type: string
+    example: "multidata-product-1"
+  timestamp:
+    description: Timestamp of the request. RFC3339 format.
+    type: datetime
+    example: "2019-10-19T13:20:09+00:00"
+  parameters:
+    description: Additional parameters that the translator needs.
+    type: object
+    properties:
+      ids:
+        description: The list of IDs to request data for.
+        type: array
+        items: object
+        example: |
+            [
+                "1",
+                "35",
+                "090822b8-3b34-454c-aefb-b18bd15a4847"
+            ]
+      startTime:
+        required: false
+        description: Data loading start interval. RFC3339 format.
+        type: datetime
+        example: "2018-11-22T10:00:00Z"
+      endTime:
+        required: false
+        description: Data loading end interval. RFC3339 format.
+        type: datetime
+        example: "2018-11-22T10:00:00Z"
+      dataTypes:
+        required: false
+        description: |
+            The types of the requested data.
+
+            Accepted values: `MeasureAirCO2LevelPPM`, `MeasureAirTemperatureCelsiusDegree`, `MeasurePresence`
+        type: array
+        items:
+            type: string
+            enum: [
+                "MeasureAirCO2LevelPPM",
+                "MeasureAirTemperatureCelsiusDegree",
+                "MeasurePresence"
+            ]
+        example: ["MeasureAirTemperatureCelsiusDegree"]
+    example: |
+        {
+            "ids": [
+                "1",
+                "35",
+                "090822b8-3b34-454c-aefb-b18bd15a4847"
+            ],
+            "startTime": "2019-10-19T13:20:09+00:00",
+            "endTime": "2019-11-19T13:20:09+00:00",
+            "dataTypes": [
+                "MeasureAirTemperatureCelsiusDegree"
+            ]
+        }

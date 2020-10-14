@@ -1,0 +1,25 @@
+#%RAML 1.0
+---
+title: Dummy Translator
+version: v1
+baseUri: https://api-external.oftrust.net/dummy-translator/v1
+mediaType: application/json
+types:
+  fetch-request: !include docs/common/types/data-product-parameters-sensor.yaml
+  fetch-response: !include docs/common/types/data-product-output-sensor.yaml
+/fetch:
+  description: Get dummy data
+  post:
+    description: Returns dummy information.
+    headers: !include docs/common/headers/data-product-sensor-headers.yaml
+    body:
+      type: fetch-request
+      example: !include docs/common/types/examples/data-product-parameters-sensor.json
+    responses:
+      200:
+        body:
+          type: fetch-response
+          example: !include docs/common/types/examples/data-product-output-sensor.json
+      422:
+        body:
+          examples: !include docs/common/types/examples/data-product-output-sensor-422.yaml

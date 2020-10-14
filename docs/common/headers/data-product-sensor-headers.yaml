@@ -1,0 +1,16 @@
+X-PoT-Signature:
+  description: |
+    A HMAC-SHA256 generated signature of the payload.
+    E.g. HMAC-SHA256(<app client secret>, <body_string>)
+  type: string
+  example: jxj28KTspn2DR4ryIX4YzSqKz9IEQuYQGw9LpRK5ydg=
+X-App-Token:
+  description: |
+    The requesting app's JWT token. The token is generated when the
+    app is created.
+  type: string
+  example: e73c3e11-1500-4fb6-854d-07806724ce0f
+X-User-Token?:
+  description: The user's OAuth token
+  type: string
+  example: ryIX4YzSqKz9I

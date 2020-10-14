@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "Dummy-translator"
+version = "0.1.0"
+description = "This is a dummy translator used for testing purposes."
+authors = ["Platform of Trust"]
+
+[tool.poetry.dependencies]
+attrs = "19.1.0"
+bottle = "0.12.13"
+cachetools = "2.1.0"
+cryptography = "2.4.2"
+invoke = "1.2.0"
+marshmallow = "2.19.2"
+marshmallow_enum = "^1.5.1"
+pycryptodome = "3.7.3"
+pyjwt = "1.7.1"
+python = "^3.6"
+python-dateutil = "2.6.1"
+requests = "2.21.0"
+webargs = "3.0.2"
+robotframework = "^3.2.2"
+restinstance = "^1.0.2"
+
+[tool.poetry.dev-dependencies]
+black = "19.10b0"
+flake8 = "3.7.7"
+flake8-import-order = "0.18.1"
+flake8-quotes = "2.0.0"
+isort = "4.3.19"
+mock = "2.0.0"
+mypy = "0.720"
+pydevd-pycharm = "~=191.6605.12"
+pytest = "3.7.2"
+pytest-cov = "*"
+pytest-mock = "1.10.0"
+snapshottest = "0.5.0"
+webtest = "2.0.32"
+pycodestyle = "2.5.0"
+pydevd = "1.4.0"
+
+[build-system]
+requires = ["poetry>=1.0.0"]
+build-backend = "poetry.masonry.api"

@@ -26,7 +26,7 @@ Required packages should be already in poetry.lock, but in case you encounter is
 
 1. Create an user account on [World test](https://world-test.oftrust.net/) (or [World Sandbox](https://world-sandbox.oftrust.net/) )
 2. Get Bearer token as described here [Developer guide - get bearer token](https://developer.oftrust.net/guides/get-bearer-token/) (this will be %POT_ACCESS_TOKEN in tests)
-3. Create a group and then register an application as described here [Developer giude - register application](https://developer.oftrust.net/guides/register-application/) (groupId will be %POT_GROUP_ID_TEST while one of the application tokens will be %POT_ACCESS_TOKEN_APP3)
+3. Create a group and then register an application as described here [Developer guide - register application](https://developer.oftrust.net/guides/register-application/) (groupId will be %POT_GROUP_ID_TEST while one of the application tokens will be %POT_ACCESS_TOKEN_APP3)
 4. Get clientSecrets value (this will be %CLIENT_SECRET_WORLD)
 5. Set environment variables which are necessary for executing robot tests:
 

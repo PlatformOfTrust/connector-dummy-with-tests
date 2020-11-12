@@ -42,5 +42,10 @@ In case you are using ubuntu or mac OS use:
 Execute test suite:
 
     poetry run -m robot.run -A robotargs.txt tests/dummy_connector.robot
+    
+or
+
+    robot -A robotargs.txt tests/dummy_connector.robot
+    
 
 Results can be found in `result` folder.

@@ -17,6 +17,10 @@ Required packages should be already in poetry.lock, but in case you encounter is
 
     poetry add robotframework
     poetry add restinstance
+    
+[RESTinstance](https://github.com/asyrjasalo/RESTinstance/) is Robot Framework external library for RESTful JSON APIs. In case poetry can not isntall it properly, try also with pip 
+    
+    pip install --upgrade RESTinstance
 
 ## Usage
 
